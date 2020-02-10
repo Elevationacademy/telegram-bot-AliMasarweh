@@ -1,3 +1,4 @@
+import operator
 
 
 def is_prime(param):
@@ -60,15 +61,21 @@ def is_sqrt(param: int):
     a_int_sqrt = "int sqrt"
     not_a_int_sqrt = "not int sqrt!"
     i = 1
-    while i*i < param:
+    while i * i < param:
         i += 1
 
-    return a_int_sqrt if i*i == param else not_a_int_sqrt
+    return a_int_sqrt if i * i == param else not_a_int_sqrt
+
+
+def most_popular(data):
+    return max(data.items(), key=operator.itemgetter(1))[0]
 
 
 command_to_function = {
     '/check': is_prime,
+    '/prime': is_prime,
     '/factorial': is_factorial,
     '/palindrome': is_palindrome,
-    '/sqrt': is_sqrt
+    '/sqrt': is_sqrt,
+    '/popular': most_popular
 }
